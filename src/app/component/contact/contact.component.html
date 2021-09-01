@@ -1,28 +1,51 @@
 
 
-<div class="form-container">
-  <form [formGroup]="contactForm" (ngSubmit)="save($event)">
-    <p>
-      Name: <br/>
-      <input type="text" formControlName="nombre">
-    </p>
-    <p>
-      Fecha: <br/>
-      <input type="text" formControlName="apellido">
-    </p>
-    <p>
-      Email: <br/>
-      <input type="email" formControlName="direccion">
-    </p> su Dirección">
 
-    <button type="button" class="hola" (click)="MostrarUsuarios()">Mostrar</button>
-    <button type="submit">Guardar</button> 
+  <div class="form-container">
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSaveForm($event)">
+    <h1>Formulario</h1>
+    <p>
+      Nombre: <br/>
+      <input class="controls" type="text" formControlName="nombre" placeholder="Ingrese su nombre">
+    </p>
+    <p>
+      Apellido: <br/>
+      <input class="controls" type="text" formControlName="apellido" placeholder="Ingrese su apellido">
+    </p>
+    <p>
+      Dirección: <br/>
+      <input class="controls" type="text" formControlName="direccion" placeholder="Ingrese su dirección">
+    </p> 
+    <button type="submit" class="myButton" [disabled]="!contactForm.valid">Guardar</button>
+      <input type="checkbox" id="btn-modal" >
+      <label for="btn-modal" class="myButton">Mostrar Usuarios</label>
+      <div class="modal">
+        <div class="contenedor">
+          <header>Tabla de Usuarios!</header>
+          <label for="btn-modal">X</label>
+          <div class="contenido">
+            <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Dirección</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of servicio.listaDeUsuarios">
+                <td>{{s.nombre}}</td>
+                <td>{{s.apellido}}</td>
+                <td>{{s.direccion}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+            </div>
+        </div>
+
+    
+    
+    
   </form>
-
-
-</div>
-<div *ngIf= "mostrarDatos">
-  <app-database></app-database>
-
-
-</div>

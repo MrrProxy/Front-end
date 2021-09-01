@@ -8,7 +8,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  public mostrarDatos: boolean = false;
 
   public contactForm: FormGroup;
   constructor(public servicio:DataServiceService) {
@@ -18,47 +17,20 @@ export class ContactComponent {
 
   createForm() {
     return new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
-      apellido: new FormControl('', [Validators.required]),
-      direccion: new FormControl('', [Validators.email])
+      nombre: new FormControl('', [Validators.required, Validators.minLength(5) ]),
+      apellido: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      direccion: new FormControl('', [Validators.required,Validators.minLength(5) ])
   });
 }
 
  onResetForm(): void {
     this.contactForm.reset();
   }
-  /*
-  onSaveForm() :any{ 
-    //var nuevoUsuario= new Usuario();
-    console.log("saved" ,this.contactForm.value);
-    console.log(this.contactForm.valid);
-    console.log(this.contactForm.get("nombre"));
-
-
-    if (this.contactForm.valid) { 
-      this.servicio.listaDeUsuarios.push(this.contactForm.value);
-      this.onResetForm();
-    }
-   
-  }*/
-  save(event: Event) {
+  onSaveForm(event: Event) {
     event.preventDefault();
-    const value = this.contactForm.value;
-    console.log(value);
-    console.log("saved" ,this.contactForm.value);
-    console.log(this.contactForm.valid);
-    console.log(this.contactForm.get("nombre"));
-    this.servicio.listaDeUsuarios.push(this.contactForm.value);
-
     if (this.contactForm.valid) { 
       this.servicio.listaDeUsuarios.push(this.contactForm.value);
       this.onResetForm();
     }
-  }
-
-  public MostrarUsuarios(): void{
-    this.mostrarDatos=true;
-
-
   }
 }

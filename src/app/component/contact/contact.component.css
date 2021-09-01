@@ -6,15 +6,25 @@
 
 .form-container{
     width: 400px;
-    background:cornflowerblue;
+    background:rgb(0, 36, 104);
     padding: 30px;
     margin: auto;
     margin-top: 100px;
     border-radius: 40px;
-    font-family: calibri;
+    font-family: "calibri";
     color: red;
     font-size: 22px;
     border: 1px solid;
+}
+.form-container h1{
+  font-size: 35px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bolder;
+  color: rgb(185, 2, 2);
+
+
+  
 }
 .form-register {
     width: 400px;
@@ -46,11 +56,10 @@
   }
 
 .myButton {
-	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	box-shadow:inset 0px 1px 3px 0px #080808;
 	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-	background-color:#768d87;
 	border-radius:5px;
-	border:1px solid #566963;
+	border:1px solid #050505;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -60,6 +69,8 @@
 	padding:16px 17px;
 	text-decoration:none;
 	text-shadow:0px -1px 0px #2b665e;
+  display: flexbox;
+  margin: 0 auto;
 }
 .myButton:hover {
 	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
@@ -68,4 +79,73 @@
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+.myButton:disabled{
+  border: 1px solid #999999;
+  background-color: #050505;
+  color: #666666;
+}
+
+.modal {
+	position: fixed;
+	top: 0;;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	transition: all 500ms ease;
+	opacity: 0;
+	visibility: hidden;
+}
+#btn-modal:checked ~ .modal{
+	opacity: 1;
+	visibility: visible;
+} 
+.contenedor{
+	width: 400px;
+	height: 300px;
+	margin: auto;
+	background: #fff;
+	box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
+	transition: all 500ms ease;
+	position: relative;
+	transform: translateY(-30%);
+}
+#btn-modal:checked ~ .modal .contenedor{
+	transform: translateY(0%);
+} 
+.contenedor header{
+	padding: 10px;
+	background: #db8046;
+	color: #fff;
+}
+.contenedor label{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: #fff;
+	font-size: 15px;
+	cursor: pointer;
+}
+.contenido{
+	width: 100%;
+	padding: 10px; 
+}
+
+#btn-modal{
+	display: none;
+}
+.lbl-modal{
+	background: #fff;
+	padding: 10px 15px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+table, th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 20px;
+}
+th td{
+  padding: 10px;
+  font-size: 15px;
 }
