@@ -1,1 +1,18 @@
-<p>contact works!</p>
+<div class="form-container">
+<form [formGroup]="contactForm" (ngSubmit)="onSaveForm($event)">
+    <p>
+        Nombre: <br/>
+      <input type="nombre" formControlName="nombre">
+    </p>
+    <p>
+        Apellido: <br/>
+      <input type="apellido" formControlName="apellido">
+    </p>
+    <p>
+        Dirección: <br/>
+      <input type="direccion" formControlName="direccion">
+    </p>
+    <button type="submit" class="btn-send" [disabled]="!contactForm.valid">Send</button>
+    <button type="submit" class="btn-send">Mostrar</button>
+</form>
+</div>
