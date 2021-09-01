@@ -1,4 +1,3 @@
-import { MessageI } from './../../Models/message-interface';
 import { DataServiceService } from './../../data-service.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';

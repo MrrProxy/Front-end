@@ -1,4 +1,3 @@
-import { MessageI } from './../../Models/message-interface';
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/data-service.service';
 
