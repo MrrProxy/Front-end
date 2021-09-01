@@ -17,8 +17,8 @@ export class ContactComponent {
 
   createForm() {
     return new FormGroup({
-      nombre: new FormControl('', [Validators.required, Validators.minLength(5) ]),
-      apellido: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      nombre: new FormControl('', [Validators.required, Validators.minLength(3) ]),
+      apellido: new FormControl('', [Validators.required, Validators.minLength(3)]),
       direccion: new FormControl('', [Validators.required,Validators.minLength(5) ])
   });
 }
