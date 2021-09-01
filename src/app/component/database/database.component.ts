@@ -8,18 +8,11 @@ import { DataServiceService } from 'src/app/data-service.service';
   styleUrls: ['./database.component.css']
 })
 export class DatabaseComponent implements OnInit {
-  public listaDeUsuarios: MessageI[] = [];
+  constructor(public servicio:DataServiceService) { }
 
-  constructor(private servicio:DataServiceService) { }
+  ngOnInit(): void { 
+    };
+  
 
-  ngOnInit(): void {
-    this.servicio.disparador.subscribe(nuevoUsuario =>{
-      this.listaDeUsuarios.push(nuevoUsuario);
-      
-    });
-  }
-   load():any{
-
-   }
 
 }

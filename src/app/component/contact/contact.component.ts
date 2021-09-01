@@ -8,33 +8,57 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+  public mostrarDatos: boolean = false;
 
   public contactForm: FormGroup;
-  constructor(private servicio:DataServiceService) {
+  constructor(public servicio:DataServiceService) {
     this.contactForm = this.createForm();
   }
 
-  get name() { return this.contactForm.get('nombre'); }
-  get apellido() { return this.contactForm.get('apellido'); }
-  get direccion() { return this.contactForm.get('direccion'); }
 
   createForm() {
     return new FormGroup({
-      nombre: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      apellido: new FormControl('', [Validators.required, Validators.minLength(5)]),
-      direccion: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(100)])
-    });
-  }
+      nombre: new FormControl('', [Validators.required]),
+      apellido: new FormControl('', [Validators.required]),
+      direccion: new FormControl('', [Validators.email])
+  });
+}
 
-  onResetForm(): void {
+ onResetForm(): void {
     this.contactForm.reset();
   }
-  onSaveForm(nuevoUsuario: MessageI) {
-    if (this.contactForm.valid) {
+  /*
+  onSaveForm() :any{ 
+    //var nuevoUsuario= new Usuario();
+    console.log("saved" ,this.contactForm.value);
+    console.log(this.contactForm.valid);
+    console.log(this.contactForm.get("nombre"));
+
+
+    if (this.contactForm.valid) { 
+      this.servicio.listaDeUsuarios.push(this.contactForm.value);
       this.onResetForm();
     }
-    
-    this.servicio.disparador.emit(nuevoUsuario);
+   
+  }*/
+  save(event: Event) {
+    event.preventDefault();
+    const value = this.contactForm.value;
+    console.log(value);
+    console.log("saved" ,this.contactForm.value);
+    console.log(this.contactForm.valid);
+    console.log(this.contactForm.get("nombre"));
+    this.servicio.listaDeUsuarios.push(this.contactForm.value);
+
+    if (this.contactForm.valid) { 
+      this.servicio.listaDeUsuarios.push(this.contactForm.value);
+      this.onResetForm();
+    }
   }
 
+  public MostrarUsuarios(): void{
+    this.mostrarDatos=true;
+
+
+  }
 }

@@ -1,9 +1,11 @@
-import {EventEmitter, Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { MessageI } from './Models/message-interface';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataServiceService {
-  @Output() disparador: EventEmitter<any> = new EventEmitter();
+  public listaDeUsuarios: MessageI[] = [];
   constructor() { }
 }
