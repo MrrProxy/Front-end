@@ -1,18 +1,14 @@
+
 <div class="form-container">
 <form [formGroup]="contactForm" (ngSubmit)="onSaveForm($event)">
-    <p>
-        Nombre: <br/>
-      <input type="nombre" formControlName="nombre">
-    </p>
-    <p>
-        Apellido: <br/>
-      <input type="apellido" formControlName="apellido">
-    </p>
-    <p>
-        Dirección: <br/>
-      <input type="direccion" formControlName="direccion">
-    </p>
+  <section>
+    <h4>Formulario Registro</h4>
+    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
+    <input class="controls" type="text" formControlName="direccion" placeholder="Ingrese su Dirección">
     <button type="submit" class="myButton" [disabled]="!contactForm.valid">Send</button>
     <button type="button" class="myButton">Mostrar</button>
+  </section>
+
 </form>
 </div>

@@ -8,7 +8,7 @@ import { DataServiceService } from 'src/app/data-service.service';
   styleUrls: ['./database.component.css']
 })
 export class DatabaseComponent implements OnInit {
-  public listaDeUsuarios: MessageI[];
+  public listaDeUsuarios: MessageI[] = [];
 
   constructor(private servicio:DataServiceService) { }
 
